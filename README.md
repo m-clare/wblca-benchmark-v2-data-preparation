@@ -3,7 +3,7 @@ This repository contains code that was developed and used to produce a dataset a
 
 The dataset produced from this code is available at: https://github.com/Life-Cycle-Lab/wblca-benchmark-v2-data
 
-## Philosophy
+## Overview
 The code provided by this repository processes data for the CLF WBLCA Benchmark Study v2 in three distinct ways. 
 
 ![Process for repository processing](https://github.com/Life-Cycle-Lab/wblca-benchmark-v2-data-preparation/blob/main/figures/process/Data%20Preparation%20Detailed%20Breakdown.png)
