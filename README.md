@@ -16,7 +16,7 @@ The code provided by this repository processes data for the CLF WBLCA Benchmark 
 2. It processes Tally LCA and One Click LCA outputs into a harmonized output with re-classified building elements and materials. 
 3. The code finalizes the project metadata and LCA results into two types of data records: a general metadata record with pertinent impacts, and a more in depth collection of impacts per material modeled.
 
-In this way, a novel, harmonized data record can be created by any user with project metadata and LCA results from Tally LCA or One Click LCA. 
+In this way, a novel, harmonized data record can be created by any user with project metadata and LCA results from Tally LCA (version 2018.09.27.01 or later) or One Click LCA (LCA for LEED, US or Canada (TRACI) only). 
 
 ## Repository Structure
 The repository references Cookiecutter Data Science, a project structure for data analysis such as this study. Cookiecutter Data Science has many useful opinions about structuring a project, and this repository attempts to follow the structure as much as possible. 
