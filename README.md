@@ -9,7 +9,7 @@ In 2017, the CLF published the Embodied Carbon Benchmark Study for North America
 ## Philosophy
 The code provided by this repository processes data for the CLF WBLCA Benchmark Study v2 in three distinct ways. 
 
-![Process for repository processing]()
+![Process for repository processing](https://github.com/Life-Cycle-Lab/wblca-benchmark-v2-data-preparation/blob/main/figures/process/Data%20Preparation%20Detailed%20Breakdown.png)
 
 
 1. It processes project metadata into a machine readable format that can be analyzed along with environmental impacts.
