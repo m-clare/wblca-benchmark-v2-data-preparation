@@ -53,6 +53,8 @@ To use this repository, users will need to run the three data pipelines provided
 
 To run the project metadata pipeline, data entry templates should be placed in *data/metadata/raw*. To run the LCA results pipeline, flattened Tally LCA or One Click LCA tool outputs should be placed in their respective folders in *data/lca_results/raw*. From there, run the scripts in the respective folder in order based on numbering. 
 
+It is recommended that a virtual python environment is created in order to use this repository. Then, the dependencies listed in *requirements.txt* can be installed and utilized. See [this guide](https://cookiecutter-data-science.drivendata.org/using-the-template/#create-a-python-virtual-environment) for installing a virtual python environment.
+ 
 To make this process easier, a makefile is provided for easier command line interfacing. See [this guide](https://cookiecutter-data-science.drivendata.org/using-the-template/#changing-the-makefile) for more details on downloading make.
 
 ## How to cite
