@@ -55,9 +55,6 @@ To run the project metadata pipeline, data entry templates should be placed in *
 
 To make this process easier, a makefile is provided for easier command line interfacing. See [this guide](https://cookiecutter-data-science.drivendata.org/using-the-template/#changing-the-makefile) for more details on downloading make.
 
-## Versioning
-Versions on this repository are marked using Releases on GitHub. 
-
 ## How to cite
 This code is supplementary to the following works. Please cite both the Data Descriptor and the specific data version used:
 - **Data Descriptor:** Benke, B., Chafart, M., Shen, Y., Ashtiani, M., Carlisle, S., and Simonen, K.  *A Harmonized Dataset of High-Resolution Whole Building Life Cycle Assessment Results in North America.* In Review. Preprint available at [*Data Descriptor preprint DOI here, when ready*].
