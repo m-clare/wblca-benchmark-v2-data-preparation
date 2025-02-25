@@ -3,9 +3,6 @@ This repository contains code that was developed and used to produce a dataset a
 
 The dataset produced from this code is available at: https://github.com/Life-Cycle-Lab/wblca-benchmark-v2-data
 
-## What is the CLF WBLCA Benchmark Study v2?
-In 2017, the CLF published the Embodied Carbon Benchmark Study for North American buildings. Since then, the practice of whole-building life cycle assessment (WBLCA) has grown rapidly in the AEC industry, and it’s become clear that more robust and reliable benchmarks are critical for advancing work in this field. The new CLF WBLCA Benchmark Study (Version 2) is built upon research and insights from the 2017 study. The project expanded our research methodology, included more comprehensive data collection, and resulted in a high-resolution dataset of harmonized WBLCA model results and project design characteristics for nearly 300 buildings across the United States and Canada. Outcomes from this project are aimed to enable designers and decision-makers to set reliable embodied carbon targets and understand the potential for reduction throughout the design and construction processes.
-
 ## Philosophy
 The code provided by this repository processes data for the CLF WBLCA Benchmark Study v2 in three distinct ways. 
 
