@@ -1,0 +1,130 @@
+---
+state:
+  - Project State or Province
+
+bldg_use:
+  - Primary Building Use Type
+  - Secondary Building Use Type
+
+prj_phase:
+  - Design Phase
+
+new_reno: 
+  - Project Type
+
+const_type:
+  - IBC Construction Type
+
+clim_zone: 
+  - Project Climate Zone
+
+seis_cat:
+  - Seismic Design Category
+
+site_cls:
+  - Seismic Site Class
+
+podium:
+  - Podium
+
+p_fnd_sys:
+  - Foundation Type 
+
+lat_sys:
+  - Primary Lateral Force Resisting System
+
+horz_sys:
+  - Primary Horizontal Gravity System
+  - Secondary Horizontal Gravity System
+
+vert_sys:
+  - Primary Vertical Gravity System
+  - Secondary Vertical Gravity System
+
+yes_no:
+  - Final Report
+  - Biogenic Carbon Included
+  - Operational Energy Included
+  - Substructure
+  - Standard Foundations
+  - Walls for Subgrade Enclosures
+  - Slabs-on-Grade
+  - "Shell - Superstructure"
+  - Floor Construction
+  - Roof Construction
+  - Stairs
+  - "Shell - Exterior Enclosure"
+  - Exterior Walls
+  - Exterior Windows
+  - Exterior Doors and Grilles
+  - Exterior Louvers and Vents
+  - Exterior Wall Appurtenances
+  - Roofing
+  - Roof Appurtenances
+  - Horizontal Openings
+  - Overhead Exterior Enclosures
+  - "Interiors - Construction"
+  - Interior Partitions
+  - Interior Windows
+  - Interior Doors
+  - Interior Grilles and Gates
+  - Raised Floor Construction
+  - Suspended Ceiling Construction
+  - Interior Specialties
+  - "Interiors - Finishes"
+  - Wall Finishes
+  - Floor / Floor Finishes
+  - Stair Finishes
+  - Ceiling Finishes
+  - Sitework
+  - Roadways
+  - Surface Parking Lots
+  - Structured Site Parking
+  - Plazas and Walkways
+  - Landscaping
+  - Tunnels
+  - MEP Utilities
+  - Services (MEP)
+  - Conveying Systems
+  - Domestic Water Distribution
+  - Sanitary Drainage
+  - Building Support Plumbing Systems
+  - Process Support Plumbing Systems
+  - Facility Fuel Systems
+  - Heating Systems
+  - Cooling Systems
+  - HVAC Distribution Systems
+  - Ventilation
+  - Fire Suppression System
+  - Facility Power Generation
+  - Electrical Service Distribution
+  - General Purpose Electrical Power
+  - Lighting
+  - Data Communication Systems
+  - Electronic Safety Systems
+  - Integrated Automation Systems
+  - Equipment & Furnishings
+  - Commercial Equipment
+  - Institutional Equipment
+  - Residential Equipment
+  - Fixed Furnishings (Casework)
+  - Movable Furnishings
+  - Embodied Carbon Reductions Pursued
+  - Building Reuse
+  - Material Reuse
+  - Alternate Structural System
+  - Structural Biobased Materials
+  - Non-structural Biobased Materials
+  - Structural Element Optimization
+  - Concrete Mix Optimization
+  - Exterior Envelope Optimization
+  - Interior Finishes Optimization
+
+software_vrsn:
+  - Software Version
+
+park_type:
+  - Attached Parking Type
+
+assess_purp:
+  - Purpose of Assessment

@@ -1,0 +1,169 @@
+---
+original_project_columns:
+  - CLF Firm ID
+  - CLF Proj ID
+  - CLF Model ID
+  - Date of Entry
+  - Project Description
+  - Project State or Province
+  - Project City
+  - Project Zip Code
+  - Project Climate Zone
+  - Building Code
+  - Energy Code
+  - Completion Year
+  - Project Type
+  - IBC Construction Type
+  - Attached Parking Type
+  - Project Floor Area
+  - Renovated Floor Area
+  - Added Floor Area
+  - External Floor Area
+  - Attached Parking Floor Area
+  - Primary Building Use Type
+  - Primary Use Floor Area
+  - Secondary Building Use Type
+  - Secondary Use Floor Area
+  - Occupant Load
+  - Residential Units
+  - Stories Above Grade
+  - Stories Below Grade
+  - Building Height
+  - Thermal Envelope Area
+  - Window Wall Ratio
+  - Average R-Value Walls
+  - Average R-Value Roofs
+  - Certifications
+  - Seismic Site Class
+  - Seismic Design Category
+  - Ultimate Wind Speed
+  - Primary Horizontal Gravity System
+  - Primary Vertical Gravity System
+  - Primary Lateral Force Resisting System
+  - Podium
+  - Secondary Horizontal Gravity System
+  - Secondary Vertical Gravity System
+  - Typical Column Grid, Long Direction
+  - Typical Column Grid, Short Direction
+  - Foundation Type
+  - Final Report
+  - Date of Analysis
+  - Design Phase
+  - Reference Study Period
+  - Biogenic Carbon Included
+  - Software Version
+  - Purpose of Assessment
+  - Operational Energy Included
+  - Additional LCA Report Name(s)
+  - Substructure
+  - Standard Foundations
+  - Walls for Subgrade Enclosures
+  - Slabs-on-Grade
+  - Shell - Superstructure
+  - Floor Construction
+  - Roof Construction
+  - Stairs
+  - Shell - Exterior Enclosure
+  - Exterior Walls
+  - Exterior Windows
+  - Exterior Doors and Grilles
+  - Exterior Louvers and Vents
+  - Exterior Wall Appurtenances
+  - Roofing
+  - Roof Appurtenances
+  - Horizontal Openings
+  - Overhead Exterior Enclosures
+  - Interiors - Construction
+  - Interior Partitions
+  - Interior Windows
+  - Interior Doors
+  - Interior Grilles and Gates
+  - Raised Floor Construction
+  - Suspended Ceiling Construction
+  - Interior Specialties
+  - Interiors - Finishes
+  - Wall Finishes
+  - Floor / Floor Finishes
+  - Stair Finishes
+  - Ceiling Finishes
+  - Sitework
+  - Roadways
+  - Surface Parking Lots
+  - Structured Site Parking
+  - Plazas and Walkways
+  - Landscaping
+  - Tunnels
+  - MEP Utilities
+  - Services (MEP)
+  - Conveying Systems
+  - Domestic Water Distribution
+  - Sanitary Drainage
+  - Building Support Plumbing Systems
+  - Process Support Plumbing Systems
+  - Facility Fuel Systems
+  - Heating Systems
+  - Cooling Systems
+  - HVAC Distribution Systems
+  - Ventilation
+  - Fire Suppression System
+  - Facility Power Generation
+  - Electrical Service Distribution
+  - General Purpose Electrical Power
+  - Lighting
+  - Data Communication Systems
+  - Electronic Safety Systems
+  - Integrated Automation Systems
+  - Equipment & Furnishings
+  - Commercial Equipment
+  - Institutional Equipment
+  - Residential Equipment
+  - Fixed Furnishings (Casework)
+  - Movable Furnishings
+  - QA User Notes
+  - Embodied Carbon Reductions Pursued
+  - Embodied Carbon Percent Reduction
+  - Building Reuse
+  - Material Reuse
+  - Alternate Structural System
+  - Structural Biobased Materials
+  - Non-structural Biobased Materials
+  - Structural Element Optimization
+  - Concrete Mix Optimization
+  - Exterior Envelope Optimization
+  - Interior Finishes Optimization
+  - Other Reductions
+
+project_replacements:
+  Buidling Height: Building Height
+  New or Renovation: Project Type
+  "Certifications ": Certifications
+  Electrionic Safety Systems: Electronic Safety Systems
+  Insitutional Equipment: Institutional Equipment
+
+original_energy_columns:
+  - CLF Firm ID
+  - CLF Proj ID
+  - CLF Model ID
+  - Energy Use Description
+  - 1_Grid Electricity
+  - 1_Measured Natural Gas
+  - 1_Measured District
+  - 1_Measured Other Fossil
+  - 1_Measured On-site Renewables
+  - 2_8760 File Name
+  - 2_On-site Renewables Included
+  - 2_Energy Modeling Tool
+  - 2_Energy Modeling Party
+  - 3_Modeled Grid Electricity
+  - 3_Modeled Natural Gas
+  - 3_Modeled District
+  - 3_Modeled Other Fossil
+  - 3_Modeled On-site Renewables
+  - 3_Energy Modeling Tool
+  - 3_Energy Modeling Party
+  - 4_Site pEUI
+  - 4_Energy Modeling Tool
+  - 4_Energy Modeling Party
+
+energy_replacements:
+  

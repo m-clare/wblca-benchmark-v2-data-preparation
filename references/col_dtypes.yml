@@ -1,0 +1,164 @@
+--- 
+project_parse_dates:
+  - Date of Entry
+  - Date of Analysis
+
+project_col_dtypes:
+  CLF Firm ID: string
+  CLF Proj ID: string
+  CLF Model ID: string
+  Project Description: string
+  Project State or Province: string
+  Project City: string
+  Project Zip Code: string
+  Project Climate Zone: string
+  Building Code: string
+  Energy Code: string
+  Completion Year: Int64
+  Project Type: string
+  IBC Construction Type: string
+  Attached Parking Type: string
+  Project Floor Area: Float64
+  Renovated Floor Area: Float64
+  Added Floor Area: Float64
+  External Floor Area: Float64
+  Attached Parking Floor Area: Float64
+  Primary Building Use Type: string
+  Primary Use Floor Area: Float64
+  Secondary Building Use Type: string
+  Secondary Use Floor Area: Float64
+  Occupant Load: Int64
+  Residential Units: Int64
+  Stories Above Grade: Int64
+  Stories Below Grade: Int64
+  Building Height: Float64
+  Thermal Envelope Area: Float64
+  Window Wall Ratio: Float64
+  Average R-Value Walls: Float64
+  Average R-Value Roofs: Float64
+  Certifications: string
+  Seismic Site Class: string
+  Seismic Design Category: string
+  Ultimate Wind Speed: Int64
+  Primary Horizontal Gravity System: string
+  Primary Vertical Gravity System: string
+  Primary Lateral Force Resisting System: string
+  Podium: string
+  Secondary Horizontal Gravity System: string
+  Secondary Vertical Gravity System: string
+  Typical Column Grid, Long Direction: Float64
+  Typical Column Grid, Short Direction: Float64
+  Foundation Type: string
+  Final Report: string
+  Design Phase: string
+  Reference Study Period: Int64
+  Biogenic Carbon Included: string
+  Software Version: string
+  Purpose of Assessment: string
+  Operational Energy Included: string
+  Additional LCA Report Name(s): string
+  Substructure: string
+  Standard Foundations: string
+  Walls for Subgrade Enclosures: string
+  Slabs-on-Grade: string
+  Shell - Superstructure: string
+  Floor Construction: string
+  Roof Construction: string
+  Stairs: string
+  Shell - Exterior Enclosure: string
+  Exterior Walls: string
+  Exterior Windows: string
+  Exterior Doors and Grilles: string
+  Exterior Louvers and Vents: string
+  Exterior Wall Appurtenances: string
+  Roofing: string
+  Roof Appurtenances: string
+  Horizontal Openings: string
+  Overhead Exterior Enclosures: string
+  Interiors - Construction: string
+  Interior Partitions: string
+  Interior Windows: string
+  Interior Doors: string
+  Interior Grilles and Gates: string
+  Raised Floor Construction: string
+  Suspended Ceiling Construction: string
+  Interior Specialties: string
+  Interiors - Finishes: string
+  Wall Finishes: string
+  Floor / Floor Finishes: string
+  Stair Finishes: string
+  Ceiling Finishes: string
+  Sitework: string
+  Roadways: string
+  Surface Parking Lots: string
+  Structured Site Parking: string
+  Plazas and Walkways: string
+  Landscaping: string
+  Tunnels: string
+  MEP Utilities: string
+  Services (MEP): string
+  Conveying Systems: string
+  Domestic Water Distribution: string
+  Sanitary Drainage: string
+  Building Support Plumbing Systems: string
+  Process Support Plumbing Systems: string
+  Facility Fuel Systems: string
+  Heating Systems: string
+  Cooling Systems: string
+  HVAC Distribution Systems: string
+  Ventilation: string
+  Fire Suppression System: string
+  Facility Power Generation: string
+  Electrical Service Distribution: string
+  General Purpose Electrical Power: string
+  Lighting: string
+  Data Communication Systems: string
+  Electronic Safety Systems: string
+  Integrated Automation Systems: string
+  Equipment & Furnishings: string
+  Commercial Equipment: string
+  Institutional Equipment: string
+  Residential Equipment: string
+  Fixed Furnishings (Casework): string
+  Movable Furnishings: string
+  QA User Notes: string
+  Embodied Carbon Reductions Pursued: string
+  Embodied Carbon Percent Reduction: Float64
+  Building Reuse: string
+  Material Reuse: string
+  Alternate Structural System: string
+  Structural Biobased Materials: string
+  Non-structural Biobased Materials: string
+  Structural Element Optimization: string
+  Concrete Mix Optimization: string
+  Exterior Envelope Optimization: string
+  Interior Finishes Optimization: string
+  Other Reductions: string
+
+energy_parse_dates:
+
+
+energy_col_dtypes:
+  - CLF Firm ID: string
+  - CLF Proj ID: string
+  - CLF Model ID: string
+  - Energy Use Description: string
+  - 1_Grid Electricity: Float64
+  - 1_Measured Natural Gas: Float64
+  - 1_Measured District: Float64
+  - 1_Measured Other Fossil: Float64
+  - 1_Measured On-site Renewables: Float64
+  - 2_8760 File Name: string
+  - 2_On-site Renewables Included: string
+  - 2_Energy Modeling Tool: string
+  - 2_Energy Modeling Party: string
+  - 3_Modeled Grid Electricity: Float64
+  - 3_Modeled Natural Gas: Float64
+  - 3_Modeled District: Float64
+  - 3_Modeled Other Fossil: Float64
+  - 3_Modeled On-site Renewables: Float64
+  - 3_Energy Modeling Tool: string
+  - 3_Energy Modeling Party: string
+  - 4_Site pEUI: Float64
+  - 4_Energy Modeling Tool: string
+  - 4_Energy Modeling Party: string

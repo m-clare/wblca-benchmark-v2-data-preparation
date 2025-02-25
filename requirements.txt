@@ -1,0 +1,17 @@
+# local package
+-e .
+
+# external requirements
+coverage
+flake8
+pandas
+pandera
+pandera[io]
+ipykernel
+black
+flake8
+isort
+openpyxl
+xlsxwriter
+sankeyflow
+matplotlib

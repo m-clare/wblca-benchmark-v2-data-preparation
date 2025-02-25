@@ -1,0 +1,325 @@
+---
+state:
+  - Aguascalientes
+  - Alabama
+  - Alaska
+  - Alberta
+  - Arizona
+  - Arkansas
+  - Baja California
+  - Baja California Sur
+  - British Columbia
+  - California
+  - Campeche
+  - Chiapas
+  - Chihuahua
+  - Coahuila
+  - Colima
+  - Colorado
+  - Connecticut
+  - Delaware
+  - District of Columbia
+  - Durango
+  - Florida
+  - Georgia
+  - Guanajuato
+  - Guerrero
+  - Hawaii
+  - Hidalgo
+  - Idaho
+  - Illinois
+  - Indiana
+  - Iowa
+  - Jalisco
+  - Kansas
+  - Kentucky
+  - Louisiana
+  - Maine
+  - Manitoba
+  - Maryland
+  - Massachusetts
+  - México
+  - México City
+  - Michigan
+  - Michoacán
+  - Minnesota
+  - Mississippi
+  - Missouri
+  - Montana
+  - Morelos
+  - Nayarit
+  - Nebraska
+  - Nevada
+  - New Brunswick
+  - New Hampshire
+  - New Jersey
+  - New Mexico
+  - New York
+  - Newfoundland and Labrador
+  - North Carolina
+  - North Dakota
+  - Nova Scotia
+  - Nuevo León
+  - Oaxaca
+  - Ohio
+  - Oklahoma
+  - Ontario
+  - Oregon
+  - Pennsylvania
+  - Prince Edward Island
+  - Puebla
+  - Quebec
+  - Querétaro
+  - Quintana Roo
+  - Rhode Island
+  - San Luis Potosí
+  - Saskatchewan
+  - Sinaloa
+  - Sonora
+  - South Carolina
+  - South Dakota
+  - Tabasco
+  - Tamaulipas
+  - Tennessee
+  - Texas
+  - Tlaxcala
+  - Utah
+  - Veracruz
+  - Vermont
+  - Virginia
+  - Washington
+  - Washington, D.C.
+  - West Virginia
+  - Wisconsin
+  - Wyoming
+  - Yucatán
+  - Zacatecas
+
+bldg_use:
+  - Aquarium
+  - Education
+  - Food Sales
+  - Food Service
+  - Health Care (Inpatient)
+  - Health Care (Outpatient)
+  - "Laboratory - Dry"
+  - "Laboratory - Wet"
+  - Lodging
+  - Mercantile (Retail Other Than Mall)
+  - Mercantile (Enclosed and Strip Malls)
+  - Office
+  - Parking
+  - Public Assembly
+  - Public Order and Safety
+  - Religious Worship
+  - Service
+  - Warehouse and Storage
+  - "Residential: Multifamily (2-4 units)"
+  - "Residential: Multifamily (5 or more units)"
+  - Stadium
+  - Transportation Hub/Infrastructure
+  - Vacant
+  - Other
+  - Empty
+  - Industrial
+  - Health Care
+  - Laboratory
+  - Transportation Hub
+
+prj_phase:
+  - Pre-design
+  - Schematic
+  - Design Development
+  - Construction Documents
+  - Construction
+  - Completed
+
+new_reno: 
+  - New Construction
+  - Major Renovation
+  - Minor Renovation
+  - Tenant Improvement
+
+const_type:
+  - Type I-A
+  - Type I-B
+  - Type II-A
+  - Type II-B
+  - Type III-A
+  - Type III-B
+  - Type IV-A
+  - Type IV-B
+  - Type IV-C
+  - Type IV-HT
+  - Type V-A
+  - Type V-B
+  - Empty
+
+clim_zone: 
+  - Zone 0A (Extremely Hot Humid)
+  - Zone 0B (Extremenly Hot Dry)
+  - Zone 1A (Very Hot Humid)
+  - Zone 1B (Very Hot Dry)
+  - Zone 2A (Hot Humid)
+  - Zone 2B (Hot Dry)
+  - Zone 3A (Warm Humid)
+  - Zone 3B (Warm Dry)
+  - Zone 3C (Warm Marine)
+  - Zone 4A (Mixed Humid)
+  - Zone 4B (Mixed Dry)
+  - Zone 4C (Mixed Marine)
+  - Zone 5A (Cool Humid)
+  - Zone 5B (Cool Dry)
+  - Zone 5C (Cool Marine)
+  - Zone 6A (Cold Humid)
+  - Zone 6B (Cold Dry)
+  - Zone 7 (Very Cold)
+  - Zone 8 (Subarcitc/Arctic)
+  - Can. 4 (<3000 HDD)
+  - Can. 5 (3000-3999 HDD)
+  - Can. 6 (4000-4999 HDD)
+  - Can. 7A (5000-5999 HDD)
+  - Can. 7B (6000-6999 HDD)
+  - Can. 8 (>7000 HDD)
+  - Outside of Canada/United States
+
+seis_cat:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - Empty
+
+site_cls:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - Empty
+
+podium:
+  - Not a podium building
+  - Primary system defined above is on a podium
+  - Primary system defined above is a podium
+
+p_fnd_sys:
+  - Shallow foundation
+  - Deep foundation < 50' (15m)
+  - Deep foundation > 50' (15m)
+  - Other Foundation System
+
+lat_sys:
+  - "Concrete: Shear walls"
+  - "Concrete: Moment frames"
+  - "Concrete: Other"
+  - "Steel: Braced frames"
+  - "Steel: Moment frames"
+  - "Steel: Other"
+  - Light Frame shear panels
+  - "Masonry: Shear walls"
+  - "Wood: Shear panels"
+  - "Wood: Other"
+  - Empty
+
+horz_sys:
+  - "Concrete: PT framing"
+  - "Concrete: Non-PT framing"
+  - "Concrete: Precast"
+  - "Concrete: Other"
+  - "Steel: Frame + concrete on metal deck"
+  - "Steel: Frame + bare metal deck"
+  - "Steel: Other"
+  - "Wood: Joists and sheathing"
+  - "Wood: Engineered panels"
+  - "Wood: Other"
+  - Empty
+
+vert_sys:
+  - "Concrete: CIP"
+  - "Concrete: Precast"
+  - "Concrete: Other"
+  - "Steel: Columns"
+  - "Steel: Cold-formed"
+  - "Steel: Other"
+  - "Wood: Mass timber"
+  - "Wood: Light-frame"
+  - "Wood: Other"
+  - Masonry
+  - Empty
+
+yes_no:
+  - "Yes"
+  - "No"
+  - "nan"
+  - ""
+  - .nan
+  - Empty
+  
+
+software_vrsn:
+  - Tally 2022.04.08.01
+  - Tally 2021.11.01.01
+  - Tally 2020.06.09.01
+  - Tally 2020.02.28.01
+  - Tally 2020.01.15.01
+  - Tally 2019.12.20.01
+  - Tally 2019.11.14.01
+  - Tally 2019.06.27.01
+  - Tally 2018.09.27.01
+  - Oneclick LCA for LEED, US (TRACI)
+  - Oneclick LCA for LEED, Canada (TRACI)
+  - Athena Version 4.0
+  - Athena Version 4.1
+  - Athena Version 4.2
+  - Athena Version 4.5
+  - Athena Version 5.0
+  - Athena Version 5.1
+  - Athena Version 5.2
+  - Athena Version 5.3
+  - Athena Version 5.4
+
+park_type:
+  - Below Grade
+  - Above grade, within footprint of main structure
+  - Above grade, attached to main structure
+  - No Parking
+
+assess_purp:
+  - "Required: Client Directive"
+  - "Required: Governing Policy"
+  - "Required: LEED Baseline"
+  - "Required: LEED Proposed"
+  - "Required: ILFI Baseline"
+  - "Required: ILFI Proposed"
+  - "Required: Other"
+  - "Voluntary: Design Milestone Tracking"
+  - "Voluntary: Hot Spot Analysis"
+  - "Voluntary: Performance Declaration"
+  - "Voluntary: Design Iteration Analysis"
+  - "Voluntary: Internal Benchmarking"
+  - "Voluntary: Other"
+
+company_size:
+  - 1
+  - 2-4
+  - 5-9
+  - 10-19
+  - 20-49
+  - 50-99
+  - 100-499
+  - 500-599
+  - 1,000+
+
+company_type:
+  - Architect
+  - Structural Engineer
+  - MEP Engineer
+  - Consultant
+  - General Contractor
+  - Subcontractor
+  - Multi-discipline Arch/Eng
+  - Other

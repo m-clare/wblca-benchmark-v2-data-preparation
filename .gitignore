@@ -1,0 +1,157 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+env/
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# DotEnv configuration
+.
+.venv
+env/
+venv_com/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Database
+*.db
+*.rdb
+
+# Pycharm
+.idea
+
+# VS Code
+.vscode/
+
+# Spyder
+.spyproject/
+
+# Jupyter NB Checkpoints
+.ipynb_checkpoints/
+
+# exclude data from source control by default
+data/metadata/cleaned/*
+data/metadata/combined/*
+data/metadata/logs/*
+data/metadata/merged/*
+data/metadata/organized/*
+data/metadata/raw/*
+data/metadata/finalized/*
+!data/metadata/cleaned/.gitkeep
+!data/metadata/combined/.gitkeep
+!data/metadata/logs/.gitkeep
+!data/metadata/merged/.gitkeep
+!data/metadata/organized/.gitkeep
+!data/metadata/raw/.gitkeep
+!data/metadata/finalized/.gitkeep
+
+data/data_record/raw/*
+data/data_record/public/*
+data/data_record/internal/*
+!data/data_record/raw/.gitkeep
+!data/data_record/public/.gitkeep
+!data/data_record/internal/.gitkeep
+
+data/lca_results/raw/*
+data/lca_results/cleaned/*
+data/lca_results/combined/*
+data/lca_results/csc/*
+data/lca_results/element_mapped/*
+data/lca_results/harmonized/*
+data/lca_results/material_mapped/*
+data/lca_results/ref_ele_mapped/*
+!data/lca_results/raw/.gitkeep
+!data/lca_results/cleaned/.gitkeep
+!data/lca_results/combined/.gitkeep
+!data/lca_results/csc/.gitkeep
+!data/lca_results/element_mapped/.gitkeep
+!data/lca_results/harmonized/.gitkeep
+!data/lca_results/material_mapped/.gitkeep
+!data/lca_results/ref_ele_mapped/.gitkeep
+# Mac OS-specific storage files
+.DS_Store
+
+# vim
+*.swp
+*.swo
+
+# Mypy cache
+.mypy_cache/
+.dmypy.json
+dmypy.json

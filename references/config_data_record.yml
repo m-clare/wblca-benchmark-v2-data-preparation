@@ -1,0 +1,219 @@
+impact_type:
+  - Mass Total (kg)
+  - Stored Biogenic Carbon
+  - Global Warming Potential_Ebio
+  - Eutrophication Potential
+  - Acidification Potential
+  - Smog Formation Potential
+  - Ozone Depletion Potential
+  - Non-renewable Energy Depletion
+
+scope_type:
+  - Interiors - Finishes
+  - Interiors - Construction
+  - Substructure
+  - Shell - Superstructure
+  - Shell - Enclosure
+  - Unknown
+
+impact_col_order:
+  - Substructure_A1-A3
+  - Substructure_A4
+  - Substructure_B4-B5
+  - Substructure_C2-C4
+  - Substructure_D
+  - Shell - Superstructure_A1-A3
+  - Shell - Superstructure_A4
+  - Shell - Superstructure_B4-B5
+  - Shell - Superstructure_C2-C4
+  - Shell - Superstructure_D
+  - Shell - Enclosure_A1-A3
+  - Shell - Enclosure_A4
+  - Shell - Enclosure_B4-B5
+  - Shell - Enclosure_C2-C4
+  - Shell - Enclosure_D
+  - Interiors - Construction_A1-A3
+  - Interiors - Construction_A4
+  - Interiors - Construction_B4-B5
+  - Interiors - Construction_C2-C4
+  - Interiors - Construction_D
+  - Interiors - Finishes_A1-A3
+  - Interiors - Finishes_A4
+  - Interiors - Finishes_B4-B5
+  - Interiors - Finishes_C2-C4
+  - Interiors - Finishes_D
+  - Unknown_A1-A3
+  - Unknown_A4
+  - Unknown_B4-B5
+  - Unknown_C2-C4
+  - Unknown_D
+
+column_value_replace:
+  prim_bldg_use:
+    Laboratory - Wet: Laboratory
+    Laboratory - Dry: Laboratory
+    Health Care (Inpatient): Healthcare
+    Health Care (Outpatient): Healthcare
+    Stadium: Public Assembly
+  sec_bldg_use:
+    Laboratory - Wet: Laboratory
+    Laboratory - Dry: Laboratory
+    Health Care (Inpatient): Healthcare
+    Health Care (Outpatient): Healthcare
+    Stadium: Public Assembly
+  
+public_dataset_column_renaming:
+  country: site_country
+  region: site_region
+  state: site_state_province
+  clim_zone: site_clim_zone
+  compl_year: bldg_compl_year
+  proj_type: bldg_proj_type
+  ibc_type: bldg_ibc_type
+  park_type: bldg_park_type
+  gfa_w_park_m: bldg_cfa
+  gfa_without_park_m: bldg_gfa
+  gfa_added_m: bldg_added_gfa
+  gfa_reno_m: bldg_renovated_gfa
+  gfa_park_m: bldg_park_gfa
+  prim_bldg_use: bldg_prim_use
+  sec_bldg_use: bldg_sec_use
+  occupancy: bldg_occupants
+  res_units: bldg_res_units
+  stories_above_grade_bins: bldg_stories_above
+  stories_below_grade_bins: bldg_stories_below
+  bldg_height_m_bins: bldg_height
+  therm_env_area_m: bldg_therm_env_area
+  wwr: bldg_wwr
+  r_value_walls: bldg_rval_walls
+  r_value_roofs: bldg_rval_roofs
+  seis_site_cls: str_seis_site_cls
+  sdc: str_sdc
+  wind_speed_m: str_wind_speed
+  podium: str_podium
+  col_grid_long_m: str_grid_long
+  col_grid_short_m: str_grid_short
+  fdn_type: str_fdn_type
+  structural_material_bins: str_sys_summary
+  design_phase: lca_design_phase
+  study_period: lca_rsp
+  software_version_bins: lca_software
+  purp_of_assessment: lca_purp_of_assessment
+  physical_scope_bins: lca_phys_scope
+  ec_reductions: lca_ec_reductions
+  ec_reduction_percent: lca_ec_reduction_percent
+
+internal_data_col_order:
+  - country
+  - region
+  - state
+  - clf_model_id
+  - clf_proj_id
+  - clf_firm_id
+  - clim_zone
+  - compl_year
+  - proj_type
+  - ibc_type
+  - park_type
+  - gfa_w_park_m
+  - gfa_without_park_m
+  - gfa_park_m
+  - gfa_added_m
+  - gfa_reno_m
+  - prim_bldg_use
+  - sec_bldg_use
+  - occupancy
+  - res_units
+  - stories_above_grade_bins
+  - stories_below_grade_bins
+  - bldg_height_m_bins
+  - therm_env_area_m
+  - wwr
+  - r_value_walls
+  - r_value_roofs
+  - seis_site_cls
+  - sdc
+  - wind_speed_m
+  - str_prim_horiz_sys
+  - str_prim_vert_sys
+  - str_lat_sys
+  - podium
+  - str_sec_horiz_sys
+  - str_sec_vert_sys
+  - col_grid_long_m
+  - col_grid_short_m
+  - fdn_type
+  - structural_material_bins
+  - lca_assessment_year
+  - design_phase
+  - study_period
+  - software_version_bins
+  - purp_of_assessment
+  - physical_scope_bins
+  - ec_reductions
+  - ec_reduction_percent
+
+buildings_metadata_impact_renaming:
+  Mass Total (kg): mass_total
+  Stored Biogenic Carbon: stored_carbon_total
+  Global Warming Potential_Ebio: gwp_a_to_c
+  Eutrophication Potential: ep_a_to_c
+  Acidification Potential: ap_a_to_c
+  Smog Formation Potential: sfp_a_to_c
+  Ozone Depletion Potential: odp_a_to_c
+  Non-renewable Energy Depletion: nred_a_to_c
+
+
+design_phases:
+  - Construction
+  - Construction Documents
+  - Completed
+  - Design Development
+
+rounding_map:
+  bldg_CFA: 0
+  bldg_GFA: 0
+  bldg_park_GFA: 0
+  bldg_added_GFA: 0
+  bldg_renovated_GFA: 0
+  bldg_prim_use_GFA: 0
+  bldg_sec_use_GFA: 0
+
+full_results_column_renaming:
+    MQ_1: mat_group
+    MQ_2: mat_type
+    Cat_Mat_1: mat_csi_division
+    Cat_Ele_1: omniclass_element
+    Service Life: service_life
+    Life Cycle Stage: life_cycle_stage
+    Mass Total (kg): inv_mass
+    Stored Biogenic Carbon: inv_stored_carbon
+    Global Warming Potential_Ebio: gwp
+    Acidification Potential: ap
+    Eutrophication Potential: ep
+    Smog Formation Potential: sfp
+    Ozone Depletion Potential: odp
+    Non-renewable Energy Depletion: nred
+
+full_results_column_list:
+  - project_index
+  - omniclass_element
+  - mat_group
+  - mat_type
+  - mat_csi_division
+  - tally_revit_building_element
+  - tally_material_group
+  - oneclick_omniclass
+  - oneclick_resource_type
+  - service_life
+  - life_cycle_stage
+  - inv_mass
+  - inv_stored_carbon
+  - gwp
+  - ep
+  - ap
+  - sfp
+  - odp
+  - nred
+  - mui_gfa
+  - mui_cfa

@@ -1,0 +1,86 @@
+---
+1_organize:
+  read_data_directory: data/metadata/raw
+  read_data_filter: '*.xlsx'
+  write_data_directory: data/metadata/organized
+  col_name_replacements: references/col_name_replacements.yml
+  module_description: organized
+  project:
+    sheet_name: 2. Project Data
+    original_column_list: original_project_columns
+    replacement_list: project_replacements
+    column_list_to_remove:
+      - User Notes
+      - Example Entry
+    organized_file_suffix: _project_det_organized.csv
+    log_file_path: data/logs/metadata/project_organize.log
+  energy:
+    sheet_name: 3. Energy Data
+    original_column_list: original_energy_columns
+    replacement_list: energy_replacements
+    column_list_to_remove:
+      - User Notes
+      - Options
+    organized_file_suffix: _energy_det_organized.csv
+    log_file_path: data/logs/metadata/energy_organize.log
+
+2_test:
+  read_data_directory: data/metadata/organized
+  project:
+    log_file_path: data/logs/metadata/project_test.log
+    read_data_filter: '*project*'
+  
+  energy:
+    log_file_path: data/logs/metadata/energy_test.log
+    read_data_filter: '*energy*'
+
+3_clean:
+  dropdown_cols: references/dropdown_cols.yml
+  dropdown_replacements: references/dropdown_replacements.yml
+  col_dtypes: references/col_dtypes.yml
+  read_data_directory: data/metadata/organized
+  write_data_directory: data/metadata/cleaned
+  module_description: cleaned
+  project:
+    read_data_filter: '*project*'
+    data_types: project_col_dtypes
+    parse_dates: project_parse_dates
+    log_file_path: data/logs/metadata/project_clean.log
+    cleaned_file_suffix: _project_det_cleaned.csv
+
+  energy:
+    read_data_filter: '*energy*'
+    data_types: energy_col_dtypes
+    parse_dates: energy_parse_dates
+    log_file_path: data/logs/metadata/energy_clean.log
+    cleaned_file_suffix: _energy_det_cleaned.csv
+
+4_merge: 
+  read_data_directory: data/metadata/cleaned
+  read_data_filter: "*.csv"
+  log_file_path: data/logs/metadata/erge_det.log
+  write_data_directory: data/metadata/merged
+  module_description: merged
+  merged_file_suffix: _det_merged.csv
+
+5_combine:
+  read_data_directory: data/metadata/merged
+  col_dtypes: references/col_dtypes.yml
+  read_data_filter: "*.csv"
+  log_file_path: data/logs/metadata/combined_det.log
+  write_data_directory: data/metadata/combined
+  dataframe_name: Project_Energy_Data_Combined
+  module_description: combined
+  file_suffix: .csv
+  schema_column_removal:
+    - CLF Proj ID
+    - CLF Firm ID
+
+6_finalize:
+  read_data_directory_path: data/metadata/combined/Project_Energy_Data_Combined.csv
+  col_finalize: references/col_finalize.yml
+  log_file_path: data/logs/metadata/finalized_det.log
+  write_data_directory: data/metadata/finalized
+  write_data_record_directory: data/data_record/raw
+  dataframe_name: Project_Energy_Data_Finalized
+  file_suffix: .csv

@@ -1,0 +1,150 @@
+---
+
+column_removal_tally:
+  - Revit design option
+  - Revit type
+  - Revit family name
+  - Revit material name
+  - Total instance count
+  - Cumulative material area (m2)
+  - Cumulative material volume (m3)
+  - Cumulative instance volume (m3)
+  - Cumulative instance area (m2)
+  - Cumulative instance length (m)
+  - Cumulative instance perimeter (m)
+  - Revit general category
+  - Primary Energy Demand Total (MJ)
+  - Renewable Energy Demand Total (MJ)
+  - Thickness of material (m)
+  - Calculated Global Warming Potential Total (kgCO2eq)
+  - FINAL Global Warming Potential Total (kgCO2eq)
+  - Final Global Warming Potential Total (kgCO2eq)
+  - Area (m2)
+  - file_name_before_merge
+  - Name_Tally Material
+  - Stored Carbon (C02eq/kg)
+
+column_rename_tally:
+  Revit category: Cat_Ele_3
+  Tally Entry Division: Cat_Mat_1
+  Tally Entry Category: Cat_Ele_4
+  Tally Entry Name: Cat_Mat_4
+  Tally Entry Description: Cat_Mat_5
+  Material Group: Cat_Mat_2
+  Revit building element: Cat_Ele_2
+  CLF Omni: Cat_Ele_1
+  Material Name: Cat_Mat_3
+  Acidification Potential Total (kgSO2eq): Acidification Potential
+  Eutrophication Potential Total (kgNeq): Eutrophication Potential
+  Ozone Depletion Potential Total (CFC-11eq): Ozone Depletion Potential
+  Smog Formation Potential Total (kgO3eq): Smog Formation Potential
+  Non-renewable Energy Demand Total (MJ): Non-renewable Energy Depletion
+  Global Warming Potential Total (kgCO2eq): Global Warming Potential_Ebio
+
+column_value_replace_tally:
+  Life Cycle Stage:
+    "[A1-A3] Product": A1-A3
+    1-A3: A1-A3
+    Product: A1-A3
+    "[A4] Transportation": A4
+    Transportation: A4
+    "[B2-B5]": B4-B5 
+    "[B2-B5] Maintenance and Replacement": B4-B5
+    Maintenance and Replacement: B4-B5
+    "[C2-C4] End of Life": C2-C4
+    C3-C4: C2-C4
+    End of Life: C2-C4
+    "[D] Module D": D
+    Module D: D
+  Cat_Ele_1:
+    "Shell - Exterior Enclosure": "Shell - Enclosure"
+  Service Life:
+    75: 60
+    70: 60
+
+
+column_removal_oneclick:
+  - User input
+  - Unit
+  - Comment
+  - Construction
+  - Transformation process
+  - Years of replacement
+  - file_name_before_merge
+  - Imported label
+  - class
+  - Thickness in
+  - "Unnamed: 27"
+  - Column1
+  - Column2
+  - Column3
+  - Column4
+  - Design Name
+  - GC3 Classification System_All
+  - "Unnamed: 28"
+  - Thickness mm
+  - Element ID
+
+
+column_rename_oneclick:
+  "Acidification kg SO₂e": Acidification Potential
+  Eutrophication kg Ne: Eutrophication Potential
+  Ozone Depletion kg CFC11e: Ozone Depletion Potential
+  Formation of tropospheric ozone kg O3e: Smog Formation Potential
+  Depletion of nonrenewable energy MJ: Non-renewable Energy Depletion
+  "Global warming kg CO₂e": Global Warming Potential_Ebio
+  "Biogenic carbon storage kg CO₂e bio": Stored Biogenic Carbon
+  Mass of raw materials kg: Mass Total (kg)
+  CLF Omni: Cat_Ele_1
+  Question: Cat_Ele_3
+  Omniclass: Cat_Ele_2
+  Resource type: Cat_Mat_2
+  Name: Cat_Mat_3
+  Resource: Cat_Mat_5
+  Service life: Service Life
+  csiMasterformat: Cat_Mat_1
+  Datasource: Cat_Mat_6
+  uniClass: Cat_Ele_4
+  Section: Life Cycle Stage
+
+column_value_replace_oneclick:
+  Life Cycle Stage:
+    B2-B5: B4-B5 
+    B3: B4-B5
+    C1-C4: C2-C4
+    C2: C2-C4
+    C3: C2-C4
+    C4: C2-C4
+    C3-C4: C2-C4
+  Service Life:
+    "75": 60
+    As building: 60
+    "100": 60
+  Cat_Mat_1:
+    3: 03 - Concrete
+    4: 04 - Masonry
+    04 - Metals: 04 - Masonry
+    5: 05 - Metals
+    6: 06 - Wood/Plastics/Composites
+    06 - Wood/Plastics/Compsites: 06 - Wood/Plastics/Composites
+    7: 07 - Thermal and Moisture Protection
+    8: 08 - Openings and Glazing
+    9: 09 - Finishes
+    10: 10 - Specialties
+    12: 12 - Furnishings
+    22: 22 - Plumbing
+    23: 23 - HVAC
+    25: 25 - Integrated Automation
+    26: 26 - Electrical
+    31: 31 - Earthwork
+    33: 33 - Utilities
+
+column_null_replacement:
+  - Global Warming Potential_Ebio
+  - Ozone Depletion Potential
+  - Acidification Potential
+  - Eutrophication Potential
+  - Smog Formation Potential
+  - Non-renewable Energy Depletion
+  - Mass Total (kg)
+  - Service Life

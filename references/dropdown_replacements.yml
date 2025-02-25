@@ -1,0 +1,90 @@
+---
+state:
+  
+
+bldg_use:
+  Laboratory - Wet: Laboratory
+  Laboratory - Dry: Laboratory
+  Health Care (Inpatient): Healthcare
+  Health Care (Outpatient): Healthcare
+  Mercantile (Retail Other Than Mall): Mercantile
+  Mercantile (Enclosed and Strip Malls): Mercantile
+
+  "Transportation Hub/Infrastructure": Transportation Hub
+  "Residential: Mulitfamily (2-4 units)": "Residential: Multifamily (2-4 units)"
+  "Residential: Mulitfamily (5 or more units)": "Residential: Multifamily (5 or more units)"
+
+prj_phase:
+  CD: Construction Documents
+
+new_reno:
+  "New construction": New Construction
+
+
+const_type:
+
+clim_zone: 
+  
+
+seis_cat:
+  
+
+site_cls:
+  
+
+podium:
+  Not a podium: Not a podium building
+  Primary System Defined Above is On a Podium: Primary system defined above is on a podium
+
+p_fnd_sys:
+  Shallow Foundations: Shallow foundation
+  Mat Foundation: Shallow foundation
+  Footings: Shallow foundation
+
+
+lat_sys:
+  "Steel: Braced Frames": "Steel: Braced frames"
+  "Concrete: Shear Walls": "Concrete: Shear walls"
+  "Wood: Shear Panels": "Wood: Shear panels"
+
+horz_sys:
+  "Steel: Frame + bare metal deck;": "Steel: Frame + bare metal deck"
+  "Steel: Frame + Concrete on Metal Deck": "Steel: Frame + bare metal deck"
+  "Concrete: Non-PT Framing": "Concrete: Non-PT framing"
+  "Wood: Engineered Panels": "Wood: Engineered panels"
+  "Concrete: Frame + Concrete on Metal Deck": "Steel: Frame + bare metal deck"
+
+
+
+vert_sys:
+  "Wood: Mass Timber": "Wood: Mass timber"
+  "Concrete: Cast in Place": "Concrete: CIP"
+  "Concrete: Columns": "Concrete: CIP"
+  
+
+yes_no:
+  
+
+software_vrsn:
+  " 2022.04.08.01": Tally 2022.04.08.01
+  " 2022.04.08.00": Tally 2022.04.08.01
+  "OneClick, Version: 0.18.1,   Database version: 7.6": Oneclick LCA for LEED, US (TRACI)
+  "OneClick, Version: 0.18.1": Oneclick LCA for LEED, US (TRACI)
+
+park_type:
+  .nan: No Parking
+  "none": No Parking
+  Below grade, within footprint of main structure: Below Grade
+  "Structured: Below Grade": Below Grade
+  Below grade: Below Grade
+
+assess_purp:
+  
+
+company_size:
+  
+
+company_type:
+  
+
+
