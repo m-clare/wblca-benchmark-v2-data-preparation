@@ -128,22 +128,35 @@ data/data_record/internal/*
 !data/data_record/public/.gitkeep
 !data/data_record/internal/.gitkeep
 
-data/lca_results/raw/*
-data/lca_results/cleaned/*
-data/lca_results/combined/*
+data/lca_results/raw/tally/*
+data/lca_results/raw/oneclick/*
+data/lca_results/cleaned/tally/*
+data/lca_results/cleaned/oneclick/*
+data/lca_results/combined/tally/*
+data/lca_results/combined/oneclick/*
 data/lca_results/csc/*
-data/lca_results/element_mapped/*
+data/lca_results/element_mapped/tally/*
+data/lca_results/element_mapped/oneclick/*
 data/lca_results/harmonized/*
-data/lca_results/material_mapped/*
-data/lca_results/ref_ele_mapped/*
-!data/lca_results/raw/.gitkeep
-!data/lca_results/cleaned/.gitkeep
-!data/lca_results/combined/.gitkeep
+data/lca_results/material_mapped/tally/*
+data/lca_results/material_mapped/oneclick/*
+data/lca_results/ref_ele_mapped/tally/*
+data/lca_results/ref_ele_mapped/oneclick/*
+
+!data/lca_results/raw/tally/.gitkeep
+!data/lca_results/raw/oneclick/.gitkeep
+!data/lca_results/cleaned/tally/.gitkeep
+!data/lca_results/cleaned/oneclick/.gitkeep
+!data/lca_results/combined/tally/.gitkeep
+!data/lca_results/combined/oneclick/.gitkeep
 !data/lca_results/csc/.gitkeep
-!data/lca_results/element_mapped/.gitkeep
+!data/lca_results/element_mapped/tally/.gitkeep
+!data/lca_results/element_mapped/oneclick/.gitkeep
 !data/lca_results/harmonized/.gitkeep
-!data/lca_results/material_mapped/.gitkeep
-!data/lca_results/ref_ele_mapped/.gitkeep
+!data/lca_results/material_mapped/tally/.gitkeep
+!data/lca_results/material_mapped/oneclick/.gitkeep
+!data/lca_results/ref_ele_mapped/tally/.gitkeep
+!data/lca_results/ref_ele_mapped/oneclick/.gitkeep
 # Mac OS-specific storage files
 .DS_Store
 
