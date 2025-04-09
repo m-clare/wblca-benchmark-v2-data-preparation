@@ -104,8 +104,8 @@ could not be set"
                 col_null_replace
             ].fillna(0)
         utils.write_to_csv(combined_tally_adjusted, harmonized_write_path, "tally_harmonized")
-    except Exception:
-        print(f"Unable to complete harmonization for tally files: {Exception}")
+    except Exception as e:
+        print(f"Unable to complete harmonization for tally files: {e}")
 
     try:
         combined_oneclick = utils.read_csv(oneclick_combined_path)
@@ -128,8 +128,8 @@ could not be set"
         utils.write_to_csv(
             combined_oneclick_adjusted, harmonized_write_path, "oneclick_harmonized"
         )
-    except Exception:
-        print(f"Unable to complete harmonization for oneclick files: {Exception}")
+    except Exception as e:
+        print(f"Unable to complete harmonization for oneclick files: {e}")
 
     # Combine the dataframes, handling cases where one might not exist
     combined_raw_wblca_output = None
@@ -157,8 +157,8 @@ could not be set"
             utils.write_to_csv(
                 combined_raw_wblca_output, data_record_write_path, "combined_harmonized"
             )
-    except Exception:
-        print(f"unable to combined outputs for raw wblca output: {Exception}")
+    except Exception as e:
+        print(f"unable to combined outputs for raw wblca output: {e}")
 
 
 if __name__ == "__main__":
