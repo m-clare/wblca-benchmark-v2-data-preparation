@@ -132,8 +132,7 @@ data/lca_results/raw/tally/*
 data/lca_results/raw/oneclick/*
 data/lca_results/cleaned/tally/*
 data/lca_results/cleaned/oneclick/*
-data/lca_results/combined/tally/*
-data/lca_results/combined/oneclick/*
+data/lca_results/combined/*
 data/lca_results/csc/*
 data/lca_results/element_mapped/tally/*
 data/lca_results/element_mapped/oneclick/*
