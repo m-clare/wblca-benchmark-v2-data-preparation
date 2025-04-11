@@ -12,12 +12,11 @@ class AbstractFilter(ABC):
 
     @property
     def column_name_to_change(self):
-        '''abstract method for column name to change in filter'''
+        """abstract method for column name to change in filter"""
         return self._column_name_to_change
 
     @abstractmethod
-    def filtering(self, df: pd.DataFrame,
-                  all_filters: Dict[str, pd.Series]) -> None:
+    def filtering(self, df: pd.DataFrame, all_filters: Dict[str, pd.Series]) -> None:
         """abstract method to add values to CLF Omni based on provided all_filters
 
         Args:
@@ -25,7 +24,9 @@ class AbstractFilter(ABC):
             all_filters (Dict[str, pd.Series]): All filters for One Click entries
         """
 
-    def and_loc(self, df: pd.DataFrame, result: str, and_filters: List[pd.Series]) -> None:
+    def and_loc(
+        self, df: pd.DataFrame, result: str, and_filters: List[pd.Series]
+    ) -> None:
         """Wrapper for pandas loc function to include multiple criteria combined with & operator
 
         Args:
@@ -38,16 +39,21 @@ class AbstractFilter(ABC):
         """
         for fil in and_filters:
             if fil is None:
-                raise KeyError('One of the and_filters was not entered correctly')
+                raise KeyError("One of the and_filters was not entered correctly")
 
         and_filters_reduced = reduce(
-            lambda series_one, series_two: series_one & series_two, and_filters)
+            lambda series_one, series_two: series_one & series_two, and_filters
+        )
         # change columns to object if the column type is float
-        if df[self.column_name_to_change].dtype == 'float64':
-            df[self.column_name_to_change] = df[self.column_name_to_change].astype(object)
+        if df[self.column_name_to_change].dtype == "float64":
+            df[self.column_name_to_change] = df[self.column_name_to_change].astype(
+                object
+            )
         df.loc[and_filters_reduced, self.column_name_to_change] = result
 
-    def or_loc(self, df: pd.DataFrame, result: str, or_filters: List[pd.Series]) -> None:
+    def or_loc(
+        self, df: pd.DataFrame, result: str, or_filters: List[pd.Series]
+    ) -> None:
         """Wrapper for pandas loc function to include multiple criteria combined with | operator
 
         Args:
@@ -60,15 +66,21 @@ class AbstractFilter(ABC):
         """
         for fil in or_filters:
             if fil is None:
-                raise KeyError('One of the or_filters was not entered correctly')
+                raise KeyError("One of the or_filters was not entered correctly")
 
         or_filters_reduced = reduce(
-            lambda series_one, series_two: series_one | series_two, or_filters)
+            lambda series_one, series_two: series_one | series_two, or_filters
+        )
 
         df.loc[or_filters_reduced, self.column_name_to_change] = result
 
-    def and_or_loc(self, df: pd.DataFrame, result: str, and_filters: List[pd.Series],
-                   or_filters: List[pd.Series]) -> None:
+    def and_or_loc(
+        self,
+        df: pd.DataFrame,
+        result: str,
+        and_filters: List[pd.Series],
+        or_filters: List[pd.Series],
+    ) -> None:
         """Wrapper for pandas loc function to include multiple criteria.
 
         Takes filters combined with & operator and filters combined with | operator and
@@ -85,17 +97,19 @@ class AbstractFilter(ABC):
         """
         for fil in and_filters:
             if fil is None:
-                raise KeyError('One of the and_filters was not entered correctly')
+                raise KeyError("One of the and_filters was not entered correctly")
 
         for fil in or_filters:
             if fil is None:
-                raise KeyError('One of the or_filters was not entered correctly')
+                raise KeyError("One of the or_filters was not entered correctly")
 
         and_filters_reduced = reduce(
-            lambda series_one, series_two: series_one & series_two, and_filters)
+            lambda series_one, series_two: series_one & series_two, and_filters
+        )
 
         or_filters_reduced = reduce(
-            lambda series_one, series_two: series_one | series_two, or_filters)
+            lambda series_one, series_two: series_one | series_two, or_filters
+        )
 
         and_or_filters = and_filters_reduced & or_filters_reduced
 

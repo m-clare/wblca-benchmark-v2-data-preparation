@@ -1,5 +1,6 @@
 # pylint: disable=C0103,
 """Combines tally and oneclick models into tool specific files."""
+
 from pathlib import Path
 from logging import getLogger
 import pandas as pd
@@ -26,7 +27,9 @@ def combine(directory_to_read: Path, write_directory: Path) -> None:
 if __name__ == "__main__":
     current_file_path = Path(__file__)
     main_directory = current_file_path.parents[2]
-    tally_directory_to_read = main_directory.joinpath("data/lca_results/ref_ele_mapped/tally")
+    tally_directory_to_read = main_directory.joinpath(
+        "data/lca_results/ref_ele_mapped/tally"
+    )
     tally_write_path = main_directory.joinpath(
         "data/lca_results/combined/Tally_Model_Combined.csv"
     )
@@ -37,7 +40,9 @@ if __name__ == "__main__":
         "data/lca_results/combined/OneClick_Model_Combined.csv"
     )
     setup_logger(
-        log_file_path=main_directory.joinpath("data/logs/lca_results/combine_lca_results.log"),
+        log_file_path=main_directory.joinpath(
+            "data/logs/lca_results/combine_lca_results.log"
+        ),
         level="info",
     )
 

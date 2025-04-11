@@ -1,5 +1,6 @@
 # pylint: disable=C0103, R0801, R0914, R0915
 """Harmonize tally and one click files."""
+
 from pathlib import Path
 from logging import getLogger
 import pandas as pd
@@ -24,7 +25,9 @@ def harmonize():
     current_file_path = Path(__file__)
     main_directory = current_file_path.parents[2]
     setup_logger(
-        log_file_path=main_directory.joinpath("data/logs/lca_results/harmonize_lca_results.log"),
+        log_file_path=main_directory.joinpath(
+            "data/logs/lca_results/harmonize_lca_results.log"
+        ),
         level="info",
     )
 
@@ -47,34 +50,34 @@ def harmonize():
     assert config is not None, "The config dictionary could not be set"
 
     column_removal_tally = config.get("column_removal_tally")
-    assert (
-        column_removal_tally is not None
-    ), "The list for column removal for Tally could not \
+    assert column_removal_tally is not None, (
+        "The list for column removal for Tally could not \
 be set"
+    )
 
     column_rename_tally = config.get("column_rename_tally")
-    assert (
-        column_rename_tally is not None
-    ), "The dict for column renaming for Tally could not \
+    assert column_rename_tally is not None, (
+        "The dict for column renaming for Tally could not \
 be set"
+    )
 
     column_removal_oneclick = config.get("column_removal_oneclick")
-    assert (
-        column_removal_oneclick is not None
-    ), "The list for column removal for One Click \
+    assert column_removal_oneclick is not None, (
+        "The list for column removal for One Click \
 could not be set"
+    )
 
     column_rename_oneclick = config.get("column_rename_oneclick")
-    assert (
-        column_rename_oneclick is not None
-    ), "The dict for column renaming for One Click \
+    assert column_rename_oneclick is not None, (
+        "The dict for column renaming for One Click \
 could not be set"
+    )
 
     column_null_replacement = config.get("column_null_replacement")
-    assert (
-        column_null_replacement is not None
-    ), "The list for column null replacement \
+    assert column_null_replacement is not None, (
+        "The list for column null replacement \
 could not be set"
+    )
     main_harmonize_logger.info("End configuration.")
 
     # read combined files
@@ -95,7 +98,9 @@ could not be set"
             .set_index("CLF Model ID")
         )
 
-        for df_key, value_to_replace_dict in config.get("column_value_replace_tally").items():
+        for df_key, value_to_replace_dict in config.get(
+            "column_value_replace_tally"
+        ).items():
             combined_tally_adjusted[df_key] = combined_tally_adjusted[df_key].replace(
                 value_to_replace_dict
             )
@@ -103,7 +108,9 @@ could not be set"
             combined_tally_adjusted[col_null_replace] = combined_tally_adjusted[
                 col_null_replace
             ].fillna(0)
-        utils.write_to_csv(combined_tally_adjusted, harmonized_write_path, "tally_harmonized")
+        utils.write_to_csv(
+            combined_tally_adjusted, harmonized_write_path, "tally_harmonized"
+        )
     except Exception as e:
         print(f"Unable to complete harmonization for tally files: {e}")
 
@@ -117,10 +124,12 @@ could not be set"
             .drop(columns=oneclick_columns_to_drop)
             .set_index("CLF Model ID")
         )
-        for df_key, value_to_replace_dict in config.get("column_value_replace_oneclick").items():
-            combined_oneclick_adjusted[df_key] = combined_oneclick_adjusted[df_key].replace(
-                value_to_replace_dict
-            )
+        for df_key, value_to_replace_dict in config.get(
+            "column_value_replace_oneclick"
+        ).items():
+            combined_oneclick_adjusted[df_key] = combined_oneclick_adjusted[
+                df_key
+            ].replace(value_to_replace_dict)
         for col_null_replace in column_null_replacement:
             combined_oneclick_adjusted[col_null_replace] = combined_oneclick_adjusted[
                 col_null_replace
@@ -134,7 +143,10 @@ could not be set"
     # Combine the dataframes, handling cases where one might not exist
     combined_raw_wblca_output = None
     try:
-        if combined_tally_adjusted is not None and combined_oneclick_adjusted is not None:
+        if (
+            combined_tally_adjusted is not None
+            and combined_oneclick_adjusted is not None
+        ):
             combined_raw_wblca_output = pd.concat(
                 [combined_tally_adjusted, combined_oneclick_adjusted], join="outer"
             )

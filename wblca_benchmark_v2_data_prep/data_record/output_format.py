@@ -8,12 +8,12 @@ def format_internal_data(writer: pd.ExcelWriter) -> None:
         writer (pd.ExcelWriter): Excel Writer from Pandas.
     """
     workbook = writer.book
-    metadata = writer.sheets['project metadata']
+    metadata = writer.sheets["project metadata"]
 
-    zero_dec_format = workbook.add_format({'num_format': '#,##0'})
-    one_dec_format = workbook.add_format({'num_format': '0.0'})
-    two_dec_format = workbook.add_format({'num_format': '0.00'})
-    three_dec_format = workbook.add_format({'num_format': '0.000'})
+    zero_dec_format = workbook.add_format({"num_format": "#,##0"})
+    one_dec_format = workbook.add_format({"num_format": "0.0"})
+    two_dec_format = workbook.add_format({"num_format": "0.00"})
+    three_dec_format = workbook.add_format({"num_format": "0.000"})
 
     # gfa_park_ratio, gfa_prim_percent, gfa_sec_percent
     metadata.set_column(14, 16, None, three_dec_format)
@@ -34,13 +34,13 @@ def format_buildings_metadata(writer: pd.ExcelWriter) -> None:
         writer (pd.ExcelWriter): Excel Writer from Pandas.
     """
     workbook = writer.book
-    metadata = writer.sheets['project metadata']
+    metadata = writer.sheets["project metadata"]
 
-    zero_dec_format = workbook.add_format({'num_format': '#,##0'})
-    one_dec_format = workbook.add_format({'num_format': '0.0'})
-    two_dec_format = workbook.add_format({'num_format': '0.00'})
-    three_dec_format = workbook.add_format({'num_format': '0.000'})
-    five_dec_format = workbook.add_format({'num_format': '0.00000'})
+    zero_dec_format = workbook.add_format({"num_format": "#,##0"})
+    one_dec_format = workbook.add_format({"num_format": "0.0"})
+    two_dec_format = workbook.add_format({"num_format": "0.00"})
+    three_dec_format = workbook.add_format({"num_format": "0.000"})
+    five_dec_format = workbook.add_format({"num_format": "0.00000"})
 
     # bldg_CFA, bldg_GFA, bldg_park_GFA, bldg_added_GFA, bldg_renovated_GFA
     metadata.set_column(11, 13, None, zero_dec_format)
@@ -100,12 +100,12 @@ def format_lca_full_results(writer: pd.ExcelWriter) -> None:
         writer (pd.ExcelWriter): Excel Writer from Pandas.
     """
     workbook = writer.book
-    lca_full_results = writer.sheets['lca_full_results']
+    lca_full_results = writer.sheets["lca_full_results"]
 
     # zero_dec_format = workbook.add_format({'num_format': '#,##0'})
-    one_dec_format = workbook.add_format({'num_format': '0.0'})
-    two_dec_format = workbook.add_format({'num_format': '0.00'})
-    three_dec_format = workbook.add_format({'num_format': '0.000'})
+    one_dec_format = workbook.add_format({"num_format": "0.0"})
+    two_dec_format = workbook.add_format({"num_format": "0.00"})
+    three_dec_format = workbook.add_format({"num_format": "0.000"})
     # five_dec_format = workbook.add_format({'num_format': '0.00000'})
 
     # inv_mass

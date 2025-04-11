@@ -1,4 +1,5 @@
 """Data entry template schema for project and energy tabs."""
+
 from pathlib import Path
 from pandera import DataFrameSchema, Column, Check, Index
 from pandera.engines import pandas_engine
@@ -17,9 +18,9 @@ def get_project_det_schema() -> DataFrameSchema:
     """
     main_directory = Path(__file__).parents[2]
     with open(
-        file=main_directory.joinpath('references/dropdowns.yml'),
-        mode='r',
-        encoding="utf-8"
+        file=main_directory.joinpath("references/dropdowns.yml"),
+        mode="r",
+        encoding="utf-8",
     ) as file:
         dropdowns = yaml.safe_load(file)
 
@@ -33,7 +34,7 @@ def get_project_det_schema() -> DataFrameSchema:
                 coerce=False,
                 required=True,
                 regex=False,
-                description='CLF Assigned ID for each firm',
+                description="CLF Assigned ID for each firm",
                 title=None,
             ),
             "CLF Proj ID": Column(
@@ -44,22 +45,18 @@ def get_project_det_schema() -> DataFrameSchema:
                 coerce=False,
                 required=True,
                 regex=False,
-                description='CLF Assigned ID for each project',
+                description="CLF Assigned ID for each project",
                 title=None,
             ),
             "Date of Entry": Column(
-                dtype=pandas_engine.DateTime(
-                    {
-                        'format': '%Y/%m/%d'
-                    }
-                ),
+                dtype=pandas_engine.DateTime({"format": "%Y/%m/%d"}),
                 checks=None,
                 nullable=False,
                 unique=False,
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Date of data entry',
+                description="Date of data entry",
                 title=None,
             ),
             "Project Description": Column(
@@ -70,21 +67,19 @@ def get_project_det_schema() -> DataFrameSchema:
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Description of the project focusing on the use, \
-function, and scope of work for the project.',
+                description="Description of the project focusing on the use, \
+function, and scope of work for the project.",
                 title=None,
             ),
             "Project State or Province": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('state'))
-                ],
+                checks=[Check.isin(dropdowns.get("state"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
                 required=True,
                 regex=False,
-                description='State/Province where the project is located',
+                description="State/Province where the project is located",
                 title=None,
             ),
             "Project City": Column(
@@ -95,7 +90,7 @@ function, and scope of work for the project.',
                 coerce=False,
                 required=True,
                 regex=False,
-                description='City where the project is located',
+                description="City where the project is located",
                 title=None,
             ),
             "Project Zip Code": Column(
@@ -106,20 +101,18 @@ function, and scope of work for the project.',
                 coerce=False,
                 required=True,
                 regex=False,
-                description='5-digit zip code where the project is located',
+                description="5-digit zip code where the project is located",
                 title=None,
             ),
             "Project Climate Zone": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('clim_zone'))
-                ],
+                checks=[Check.isin(dropdowns.get("clim_zone"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Climate Zone where the project is located',
+                description="Climate Zone where the project is located",
                 title=None,
             ),
             "Building Code": Column(
@@ -130,7 +123,7 @@ function, and scope of work for the project.',
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Governing building code where the project is located',
+                description="Governing building code where the project is located",
                 title=None,
             ),
             "Energy Code": Column(
@@ -141,7 +134,7 @@ function, and scope of work for the project.',
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Governing energy code where the project is located',
+                description="Governing energy code where the project is located",
                 title=None,
             ),
             "Completion Year": Column(
@@ -158,44 +151,36 @@ certificate of occupancy, or anticipated project completion year",
             ),
             "Project Type": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('new_reno'))
-                ],
+                checks=[Check.isin(dropdowns.get("new_reno"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Type of construction which details whether the project \
-is new or a modification of an existing building',
+                description="Type of construction which details whether the project \
+is new or a modification of an existing building",
                 title=None,
             ),
             "IBC Construction Type": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(
-                        dropdowns.get('const_type')
-                    )
-                ],
+                checks=[Check.isin(dropdowns.get("const_type"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Type of construction per IBC',
+                description="Type of construction per IBC",
                 title=None,
             ),
             "Attached Parking Type": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('park_type'))
-                ],
+                checks=[Check.isin(dropdowns.get("park_type"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
                 required=True,
                 regex=False,
-                description='Type of attached parking structure or “parkade”',
+                description="Type of attached parking structure or “parkade”",
                 title=None,
             ),
             "Project Floor Area": Column(
@@ -206,9 +191,9 @@ is new or a modification of an existing building',
                 coerce=False,
                 required=True,
                 regex=False,
-                description='The total horizontal area occupied by the building including \
+                description="The total horizontal area occupied by the building including \
 attached parking floor area, if applicable, and inclusive of existing floor area, if \
-applicable, for renovation projects',
+applicable, for renovation projects",
                 title=None,
             ),
             "Renovated Floor Area": Column(
@@ -219,7 +204,7 @@ applicable, for renovation projects',
                 coerce=False,
                 required=True,
                 regex=False,
-                description='The total horizontal area where the existing building was renovated',
+                description="The total horizontal area where the existing building was renovated",
                 title=None,
             ),
             "Added Floor Area": Column(
@@ -257,9 +242,7 @@ applicable, for renovation projects',
             ),
             "Primary Building Use Type": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('bldg_use'))
-                ],
+                checks=[Check.isin(dropdowns.get("bldg_use"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -281,9 +264,7 @@ applicable, for renovation projects',
             ),
             "Secondary Building Use Type": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('bldg_use'))
-                ],
+                checks=[Check.isin(dropdowns.get("bldg_use"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -425,9 +406,7 @@ applicable, for renovation projects',
             ),
             "Seismic Site Class": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('site_cls'))
-                ],
+                checks=[Check.isin(dropdowns.get("site_cls"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -438,9 +417,7 @@ applicable, for renovation projects',
             ),
             "Seismic Design Category": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('seis_cat'))
-                ],
+                checks=[Check.isin(dropdowns.get("seis_cat"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -454,7 +431,7 @@ applicable, for renovation projects',
                 checks=[
                     Check.greater_than_or_equal_to(
                         min_value=80,
-                        error='Ultimate Wind Speed must be greater than 80'
+                        error="Ultimate Wind Speed must be greater than 80",
                     ),
                 ],
                 nullable=False,
@@ -469,8 +446,7 @@ applicable, for renovation projects',
                 dtype="string",
                 checks=[
                     Check.isin(
-                        dropdowns.get('horz_sys'),
-                        error='Gravity System is not in list'
+                        dropdowns.get("horz_sys"), error="Gravity System is not in list"
                     )
                 ],
                 nullable=False,
@@ -483,9 +459,7 @@ applicable, for renovation projects',
             ),
             "Primary Vertical Gravity System": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('vert_sys'))
-                ],
+                checks=[Check.isin(dropdowns.get("vert_sys"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -498,8 +472,8 @@ applicable, for renovation projects',
                 dtype="string",
                 checks=[
                     Check.isin(
-                        dropdowns.get('lat_sys'),
-                        error='Lateral System is not in dropdown list'
+                        dropdowns.get("lat_sys"),
+                        error="Lateral System is not in dropdown list",
                     )
                 ],
                 nullable=False,
@@ -512,9 +486,7 @@ applicable, for renovation projects',
             ),
             "Podium": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('podium'))
-                ],
+                checks=[Check.isin(dropdowns.get("podium"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -525,9 +497,7 @@ applicable, for renovation projects',
             ),
             "Secondary Horizontal Gravity System": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('horz_sys'))
-                ],
+                checks=[Check.isin(dropdowns.get("horz_sys"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -538,9 +508,7 @@ applicable, for renovation projects',
             ),
             "Secondary Vertical Gravity System": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('vert_sys'))
-                ],
+                checks=[Check.isin(dropdowns.get("vert_sys"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -577,9 +545,7 @@ applicable, for renovation projects',
             ),
             "Foundation Type": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('p_fnd_sys'))
-                ],
+                checks=[Check.isin(dropdowns.get("p_fnd_sys"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -600,11 +566,7 @@ applicable, for renovation projects',
                 title=None,
             ),
             "Date of Analysis": Column(
-                dtype=pandas_engine.DateTime(
-                    {
-                        'format': '%Y/%m/%d'
-                    }
-                ),
+                dtype=pandas_engine.DateTime({"format": "%Y/%m/%d"}),
                 checks=None,
                 nullable=False,
                 unique=False,
@@ -616,9 +578,7 @@ applicable, for renovation projects',
             ),
             "Design Phase": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('prj_phase'))
-                ],
+                checks=[Check.isin(dropdowns.get("prj_phase"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -642,9 +602,7 @@ applicable, for renovation projects',
             ),
             "Biogenic Carbon Included": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -655,9 +613,7 @@ applicable, for renovation projects',
             ),
             "Software Version": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('software_vrsn'))
-                ],
+                checks=[Check.isin(dropdowns.get("software_vrsn"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -668,9 +624,7 @@ applicable, for renovation projects',
             ),
             "Purpose of Assessment": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('assess_purp'))
-                ],
+                checks=[Check.isin(dropdowns.get("assess_purp"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -681,9 +635,7 @@ applicable, for renovation projects',
             ),
             "Operational Energy Included": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -705,9 +657,7 @@ applicable, for renovation projects',
             ),
             "Substructure": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -718,9 +668,7 @@ applicable, for renovation projects',
             ),
             "Standard Foundations": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -731,9 +679,7 @@ applicable, for renovation projects',
             ),
             "Walls for Subgrade Enclosures": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -744,9 +690,7 @@ applicable, for renovation projects',
             ),
             "Slabs-on-Grade": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -757,9 +701,7 @@ applicable, for renovation projects',
             ),
             "Shell - Superstructure": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -770,9 +712,7 @@ applicable, for renovation projects',
             ),
             "Floor Construction": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -783,9 +723,7 @@ applicable, for renovation projects',
             ),
             "Roof Construction": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -796,9 +734,7 @@ applicable, for renovation projects',
             ),
             "Stairs": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -809,9 +745,7 @@ applicable, for renovation projects',
             ),
             "Shell - Exterior Enclosure": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -822,9 +756,7 @@ applicable, for renovation projects',
             ),
             "Exterior Walls": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -835,9 +767,7 @@ applicable, for renovation projects',
             ),
             "Exterior Windows": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -848,9 +778,7 @@ applicable, for renovation projects',
             ),
             "Exterior Doors and Grilles": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -861,9 +789,7 @@ applicable, for renovation projects',
             ),
             "Exterior Louvers and Vents": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -874,9 +800,7 @@ applicable, for renovation projects',
             ),
             "Exterior Wall Appurtenances": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -887,9 +811,7 @@ applicable, for renovation projects',
             ),
             "Roofing": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -900,9 +822,7 @@ applicable, for renovation projects',
             ),
             "Roof Appurtenances": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -913,9 +833,7 @@ applicable, for renovation projects',
             ),
             "Horizontal Openings": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -926,9 +844,7 @@ applicable, for renovation projects',
             ),
             "Overhead Exterior Enclosures": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -939,9 +855,7 @@ applicable, for renovation projects',
             ),
             "Interiors - Construction": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -952,9 +866,7 @@ applicable, for renovation projects',
             ),
             "Interior Partitions": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -965,9 +877,7 @@ applicable, for renovation projects',
             ),
             "Interior Windows": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -978,9 +888,7 @@ applicable, for renovation projects',
             ),
             "Interior Doors": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -991,9 +899,7 @@ applicable, for renovation projects',
             ),
             "Interior Grilles and Gates": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1004,9 +910,7 @@ applicable, for renovation projects',
             ),
             "Raised Floor Construction": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1017,9 +921,7 @@ applicable, for renovation projects',
             ),
             "Suspended Ceiling Construction": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1030,9 +932,7 @@ applicable, for renovation projects',
             ),
             "Interior Specialties": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1043,9 +943,7 @@ applicable, for renovation projects',
             ),
             "Interiors - Finishes": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -1056,9 +954,7 @@ applicable, for renovation projects',
             ),
             "Wall Finishes": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1069,9 +965,7 @@ applicable, for renovation projects',
             ),
             "Floor / Floor Finishes": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1082,9 +976,7 @@ applicable, for renovation projects',
             ),
             "Stair Finishes": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1095,9 +987,7 @@ applicable, for renovation projects',
             ),
             "Ceiling Finishes": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1108,9 +998,7 @@ applicable, for renovation projects',
             ),
             "Sitework": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -1121,9 +1009,7 @@ applicable, for renovation projects',
             ),
             "Roadways": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1134,9 +1020,7 @@ applicable, for renovation projects',
             ),
             "Surface Parking Lots": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1147,9 +1031,7 @@ applicable, for renovation projects',
             ),
             "Structured Site Parking": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1160,9 +1042,7 @@ applicable, for renovation projects',
             ),
             "Plazas and Walkways": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1173,9 +1053,7 @@ applicable, for renovation projects',
             ),
             "Landscaping": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1186,9 +1064,7 @@ applicable, for renovation projects',
             ),
             "Tunnels": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1199,9 +1075,7 @@ applicable, for renovation projects',
             ),
             "MEP Utilities": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1212,9 +1086,7 @@ applicable, for renovation projects',
             ),
             "Services (MEP)": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -1225,9 +1097,7 @@ applicable, for renovation projects',
             ),
             "Conveying Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1238,9 +1108,7 @@ applicable, for renovation projects',
             ),
             "Domestic Water Distribution": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1251,9 +1119,7 @@ applicable, for renovation projects',
             ),
             "Sanitary Drainage": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1264,9 +1130,7 @@ applicable, for renovation projects',
             ),
             "Building Support Plumbing Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1277,9 +1141,7 @@ applicable, for renovation projects',
             ),
             "Process Support Plumbing Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1290,9 +1152,7 @@ applicable, for renovation projects',
             ),
             "Facility Fuel Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1303,9 +1163,7 @@ applicable, for renovation projects',
             ),
             "Heating Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1316,9 +1174,7 @@ applicable, for renovation projects',
             ),
             "Cooling Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1329,9 +1185,7 @@ applicable, for renovation projects',
             ),
             "HVAC Distribution Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1342,9 +1196,7 @@ applicable, for renovation projects',
             ),
             "Ventilation": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1355,9 +1207,7 @@ applicable, for renovation projects',
             ),
             "Fire Suppression System": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1368,9 +1218,7 @@ applicable, for renovation projects',
             ),
             "Facility Power Generation": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1381,9 +1229,7 @@ applicable, for renovation projects',
             ),
             "Electrical Service Distribution": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1394,9 +1240,7 @@ applicable, for renovation projects',
             ),
             "General Purpose Electrical Power": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1407,9 +1251,7 @@ applicable, for renovation projects',
             ),
             "Lighting": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1420,9 +1262,7 @@ applicable, for renovation projects',
             ),
             "Data Communication Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1433,9 +1273,7 @@ applicable, for renovation projects',
             ),
             "Electronic Safety Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1446,9 +1284,7 @@ applicable, for renovation projects',
             ),
             "Integrated Automation Systems": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1459,9 +1295,7 @@ applicable, for renovation projects',
             ),
             "Equipment & Furnishings": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -1472,9 +1306,7 @@ applicable, for renovation projects',
             ),
             "Commercial Equipment": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1485,9 +1317,7 @@ applicable, for renovation projects',
             ),
             "Institutional Equipment": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1498,9 +1328,7 @@ applicable, for renovation projects',
             ),
             "Residential Equipment": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1511,9 +1339,7 @@ applicable, for renovation projects',
             ),
             "Fixed Furnishings (Casework)": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1524,9 +1350,7 @@ applicable, for renovation projects',
             ),
             "Movable Furnishings": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1548,9 +1372,7 @@ applicable, for renovation projects',
             ),
             "Embodied Carbon Reductions Pursued": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=False,
                 unique=False,
                 coerce=False,
@@ -1574,9 +1396,7 @@ applicable, for renovation projects',
             ),
             "Building Reuse": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1587,9 +1407,7 @@ applicable, for renovation projects',
             ),
             "Material Reuse": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1600,9 +1418,7 @@ applicable, for renovation projects',
             ),
             "Alternate Structural System": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1613,9 +1429,7 @@ applicable, for renovation projects',
             ),
             "Structural Biobased Materials": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1626,9 +1440,7 @@ applicable, for renovation projects',
             ),
             "Non-structural Biobased Materials": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1639,9 +1451,7 @@ applicable, for renovation projects',
             ),
             "Structural Element Optimization": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1652,9 +1462,7 @@ applicable, for renovation projects',
             ),
             "Concrete Mix Optimization": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1665,9 +1473,7 @@ applicable, for renovation projects',
             ),
             "Exterior Envelope Optimization": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1678,9 +1484,7 @@ applicable, for renovation projects',
             ),
             "Interior Finishes Optimization": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
@@ -1736,9 +1540,9 @@ def get_energy_det_schema():
     """
     main_directory = Path(__file__).parents[2]
     with open(
-        file=main_directory.joinpath('references/dropdowns.yml'),
-        mode='r',
-        encoding="utf-8"
+        file=main_directory.joinpath("references/dropdowns.yml"),
+        mode="r",
+        encoding="utf-8",
     ) as file:
         dropdowns = yaml.safe_load(file)
 
@@ -1752,7 +1556,7 @@ def get_energy_det_schema():
                 coerce=False,
                 required=True,
                 regex=False,
-                description='CLF Assigned ID for each firm',
+                description="CLF Assigned ID for each firm",
                 title=None,
             ),
             "CLF Proj ID": Column(
@@ -1763,7 +1567,7 @@ def get_energy_det_schema():
                 coerce=False,
                 required=True,
                 regex=False,
-                description='CLF Assigned ID for each project',
+                description="CLF Assigned ID for each project",
                 title=None,
             ),
             "Energy Use Description": Column(
@@ -1845,9 +1649,7 @@ def get_energy_det_schema():
             ),
             "2_On-site Renewables Included": Column(
                 dtype="string",
-                checks=[
-                    Check.isin(dropdowns.get('yes_no'))
-                ],
+                checks=[Check.isin(dropdowns.get("yes_no"))],
                 nullable=True,
                 unique=False,
                 coerce=False,
