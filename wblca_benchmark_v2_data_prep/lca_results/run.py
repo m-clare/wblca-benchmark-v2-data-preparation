@@ -6,8 +6,10 @@ import wblca_benchmark_v2_data_prep.lca_results.clean as clean_util
 import wblca_benchmark_v2_data_prep.utils.general as general_util
 from wblca_benchmark_v2_data_prep.lca_results.MappingImplementation import (
     TallyElementMapper,
+    TallyRefinedElementMapper,
     TallyMaterialQuantityMapper,
 )
+import wblca_benchmark_v2_data_prep.lca_results.comb_refined_ele_filters as ref
 import wblca_benchmark_v2_data_prep.lca_results.tally_ele_filters as t_efi
 import wblca_benchmark_v2_data_prep.lca_results.tally_mat_filters as t_mfi
 
@@ -26,7 +28,7 @@ def clean_raw_tally_files(tally_dir):
         tally_df = general_util.read_csv(tally_file)
         tally_df = clean_util.clean_tally_df(tally_df=tally_df, tally_file=tally_file)
         adjusted_tally_df = clean_util.adjust_tally_walls(tally_df)
-        cleaned_dfs.append(adjusted_tally_df)
+        cleaned_dfs.append(adjusted_tally_df.reset_index())
 
     return cleaned_dfs
 
@@ -230,9 +232,106 @@ def map_tally_materials(tally_dfs):
     return mq_tally_dfs
 
 
+def map_tally_elements_refined(tally_dfs):
+    """
+    Maps Tally elements a second time.
+
+    This script does the following:
+
+    - Instatiates the refined element mapper.
+    - filters the tally file based on material mapping that has occured.
+    - Returns the ref_ele_mapped data frames
+    """
+    refined_tally_dfs = []
+    for tally_df in tally_dfs:
+        # instantiate ElementMapper
+        Mapper = TallyRefinedElementMapper(tally_df, ref.RefinedElementFilter("CLF Omni"))
+        Mapper.do_filtering()
+        refined_tally_dfs.append(Mapper.df)
+    return refined_tally_dfs
+
+
+def harmonize(combined_tally_df=None, oneclick_df=None):
+    current_file_path = Path(__file__)
+    main_directory = current_file_path.parents[2]
+    config_path = main_directory.joinpath("references/config_harmonize.yml")
+    harmonized_write_path = main_directory.joinpath("data/lca_results/harmonized")
+    config = general_util.read_yaml(config_path)
+    assert config is not None, "The config dictionary could not be set"
+
+    combined_tally_adjusted = None
+    combined_oneclick_adjusted = None
+    if combined_tally_df is not None:
+        column_removal_tally = config.get("column_removal_tally")
+        assert (
+            column_removal_tally is not None
+        ), "The list for column removal for Tally could not \
+    be set"
+
+        column_rename_tally = config.get("column_rename_tally")
+        assert (
+            column_rename_tally is not None
+        ), "The dict for column renaming for Tally could not \
+    be set"
+
+        column_null_replacement = config.get("column_null_replacement")
+        assert (
+            column_null_replacement is not None
+        ), "The list for column null replacement \
+    could not be set"
+
+        try:
+            # get the combined sets of columns to drop
+            tally_columns_to_drop = list(
+                set(combined_tally_df.columns.to_list()) & set(column_removal_tally)
+            )
+            combined_tally_adjusted = (
+                combined_tally_df.rename(columns=column_rename_tally)
+                .drop(columns=tally_columns_to_drop)
+                .set_index("CLF Model ID")
+            )
+            for df_key, value_to_replace_dict in config.get("column_value_replace_tally").items():
+                combined_tally_adjusted[df_key] = combined_tally_adjusted[df_key].replace(
+                    value_to_replace_dict
+                )
+            for col_null_replace in column_null_replacement:
+                combined_tally_adjusted[col_null_replace] = combined_tally_adjusted[
+                    col_null_replace
+                ].fillna(0)
+        except Exception as e:
+            print(f"Unable to complete harmonization for tally files: {e}")
+
+    try:
+        if combined_tally_adjusted is not None and combined_oneclick_adjusted is not None:
+            combined_raw_wblca_output = pd.concat(
+                [combined_tally_adjusted, combined_oneclick_adjusted], join="outer"
+            )
+            print("Combined both tally and oneclick dataframes")
+        elif combined_tally_adjusted is not None:
+            combined_raw_wblca_output = combined_tally_adjusted
+            print("Using only tally dataframe as oneclick is not available")
+        elif combined_oneclick_adjusted is not None:
+            combined_raw_wblca_output = combined_oneclick_adjusted
+            print("Using only oneclick dataframe as tally is not available")
+        else:
+            combined_raw_wblca_output = None
+            print("No dataframes available to combine")
+
+        # write to csv
+        if combined_raw_wblca_output is not None:
+            general_util.write_to_csv(
+                combined_raw_wblca_output, harmonized_write_path, "combined_harmonized_fn"
+            )
+    except Exception as e:
+        print(f"unable to combined outputs for raw wblca output: {e}")
+
+
 def run_tally(tally_dir=None):
     path = Path(tally_dir)
     cleaned_tally_dfs = clean_raw_tally_files(path)
     sc_tally_dfs = add_stored_carbon_to_tally_dfs(cleaned_tally_dfs)
     element_mapped_dfs = map_tally_elements(sc_tally_dfs)
     material_mapped_dfs = map_tally_materials(element_mapped_dfs)
+    refined_element_dfs = map_tally_elements_refined(material_mapped_dfs)
+    combined_dfs = pd.concat(refined_element_dfs)
+    harmonize(combined_dfs)
