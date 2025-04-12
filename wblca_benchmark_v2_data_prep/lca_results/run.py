@@ -301,6 +301,7 @@ def harmonize(combined_tally_df=None, oneclick_df=None):
         except Exception as e:
             print(f"Unable to complete harmonization for tally files: {e}")
 
+    combined_lca_output = None
     try:
         if combined_tally_adjusted is not None and combined_oneclick_adjusted is not None:
             combined_raw_wblca_output = pd.concat(
@@ -317,21 +318,26 @@ def harmonize(combined_tally_df=None, oneclick_df=None):
             combined_raw_wblca_output = None
             print("No dataframes available to combine")
 
-        # write to csv
-        if combined_raw_wblca_output is not None:
-            general_util.write_to_csv(
-                combined_raw_wblca_output, harmonized_write_path, "combined_harmonized_fn"
-            )
+        combined_lca_output = combined_raw_wblca_output
     except Exception as e:
         print(f"unable to combined outputs for raw wblca output: {e}")
 
+    return combined_lca_output
 
-def run_tally(tally_dir=None):
-    path = Path(tally_dir)
-    cleaned_tally_dfs = clean_raw_tally_files(path)
+
+def run_tally(tally_dir: str):
+    input_path = Path(tally_dir)
+    print(input_path)
+    main_directory = input_path.parents[2]
+    print(main_directory)
+    output_path = main_directory.joinpath("lca_results/harmonized/")
+    print(output_path)
+    cleaned_tally_dfs = clean_raw_tally_files(input_path)
     sc_tally_dfs = add_stored_carbon_to_tally_dfs(cleaned_tally_dfs)
     element_mapped_dfs = map_tally_elements(sc_tally_dfs)
     material_mapped_dfs = map_tally_materials(element_mapped_dfs)
     refined_element_dfs = map_tally_elements_refined(material_mapped_dfs)
     combined_dfs = pd.concat(refined_element_dfs)
-    harmonize(combined_dfs)
+    combined_output = harmonize(combined_dfs)
+    if combined_output is not None:
+        combined_output.to_csv(output_path.joinpath("combined_harmonized_fn.csv"))
