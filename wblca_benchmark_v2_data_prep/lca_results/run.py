@@ -327,11 +327,8 @@ def harmonize(combined_tally_df=None, oneclick_df=None):
 
 def run_tally(tally_dir: str):
     input_path = Path(tally_dir)
-    print(input_path)
     main_directory = input_path.parents[2]
-    print(main_directory)
     output_path = main_directory.joinpath("lca_results/harmonized/")
-    print(output_path)
     cleaned_tally_dfs = clean_raw_tally_files(input_path)
     sc_tally_dfs = add_stored_carbon_to_tally_dfs(cleaned_tally_dfs)
     element_mapped_dfs = map_tally_elements(sc_tally_dfs)
